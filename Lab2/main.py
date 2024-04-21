@@ -41,7 +41,7 @@ ax.plot_wireframe(cube[0, :].reshape((-1, 16)), cube[1, :].reshape((-1, 16)), cu
 #                   scaled_cube_x2[2, :].reshape((-1, 16)), color='green')
 # ax.plot_wireframe(scaled_cube_x05[0, :].reshape((-1, 16)), scaled_cube_x05[1, :].reshape((-1, 16)),
 #                   scaled_cube_x05[2, :].reshape((-1, 16)), color='red')
-# ax.set_title('Scale')
+ax.set_title('Scale')
 # plt.show()
 
 '''0 point|XY symetry'''
@@ -49,14 +49,14 @@ zero_symetry = cube * -1
 
 XY_symetry = np.copy(cube)
 XY_symetry[2, :] = XY_symetry[2, :] * -1
-
+#
 # ax.plot_wireframe(zero_symetry[0, :].reshape((-1, 16)), zero_symetry[1, :].reshape((-1, 16)),
 #                   zero_symetry[2, :].reshape((-1, 16)), color='red')
 # ax.plot_wireframe(XY_symetry[0, :].reshape((-1, 16)), XY_symetry[1, :].reshape((-1, 16)),
 #                   XY_symetry[2, :].reshape((-1, 16)), color='yellow')
 # ax.plot_wireframe(np.array([[7, -7, -7, 7, 7]]), np.array([[-7, -7, 7, 7, -7]]), np.array([[0, 0, 0, 0, 0]]),
 #                   color='violet')
-# ax.set_title('Symetry')
+ax.set_title('Symetry')
 # plt.show()
 
 '''Line turn'''
@@ -107,7 +107,7 @@ for i in range(4):
     move_line_matrix[i, i] = 1
 move_line_matrix[:3, 3] = [-2, 0, 3]
 moved_cube_a = np.dot(move_line_matrix, turned_x_cube_a)
-
+#
 # ax.plot_wireframe(line[0, :].reshape((-1, 2)), line[1, :].reshape((-1, 2)), line[2, :].reshape((-1, 2)),
 #                   color='violet')
 # ax.plot_wireframe(moved_cube_a[0, :].reshape((-1, 16)), moved_cube_a[1, :].reshape((-1, 16)),
@@ -132,7 +132,6 @@ C = np.linalg.det([[b[0]-a[0], b[1]-a[1]],
                    [c[0]-a[0], c[1]-a[1]]])
 D = -3*A - 7*B - 9*C
 
-print(A, B, C, D)
 M = np.array([[1, 0, 0, 0],
               [0, 1, 0, 0],
               [0, 0, 1, D/C],
@@ -168,8 +167,9 @@ cube_4 = np.dot(M3, cube_3)
 cube_5 = np.dot(M4, cube_4)
 cube_6 = np.dot(M5, cube_5)
 cube_7 = np.dot(M6, cube_6)
-ax.plot_wireframe(dots[0, :].reshape((-1, 4)), dots[1, :].reshape((-1, 4)),
-                  dots[2, :].reshape((-1, 4)))
+
+# ax.plot_wireframe(dots[0, :].reshape((-1, 4)), dots[1, :].reshape((-1, 4)),
+#                   dots[2, :].reshape((-1, 4)))
 # ax.plot_wireframe(cube_7[0, :].reshape((-1, 16)), cube_7[1, :].reshape((-1, 16)),
 #                   cube_7[2, :].reshape((-1, 16)), color='red')
 # plt.show()
