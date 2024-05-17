@@ -205,6 +205,7 @@ def fractal8(length=2, angle=45):  # Крива Леві
         y.append(t.pos()[1])
     return x, y
 
+# fractal2()
 
 xs = []
 ys = []
@@ -224,11 +225,11 @@ def anim(frame):
 
 ani = FuncAnimation(fig, anim, frames=len(xs), interval=150)
 
-writer = animation.PillowWriter(fps=15,
-                                metadata=dict(artist='Me'),
-                                bitrate=1800)
-ani.save('Крива Дракона.gif')
+# writer = animation.PillowWriter(fps=15,
+#                                 metadata=dict(artist='Me'),
+#                                 bitrate=1800)
+# ani.save('Крива Дракона.gif')
 
 plt.show()
-# update()
-# done()
+update()
+done()
